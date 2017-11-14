@@ -182,6 +182,20 @@ dcos(){
 		-w /root/apps \
 		${DOCKER_REPO_PREFIX}/dcos-cli "$@"
 }
+electrum-xvg(){
+  del_stopped electrum-xvg
+
+  docker run -d \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    --security-opt seccomp:unconfined \
+    --device /dev/video0 \
+    --device /dev/snd \
+    -v "${HOME}/.apps/electrum-xvg/.electrum-xvg/:/home/user/.electrum-xvg" \
+    --name electrum-xvg \
+    ${DOCKER_REPO_PREFIX}/electrum-xvg
+}
 firefox(){
 	del_stopped firefox
 

@@ -717,14 +717,14 @@ signal(){
   docker run -d \
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-  	-e DISPLAY=unix$DISPLAY \
+    -e DISPLAY=unix$DISPLAY \
     --security-opt seccomp:unconfined \
     --device /dev/video0 \
     --device /dev/snd \
-  	-v "${HOME}/.apps/signal/Export:/home/user/Export" \
-  	-v "${HOME}/.apps/signal/Signal:/home/user/.config/Signal" \
-  	--name signal \
-  	${DOCKER_REPO_PREFIX}/signal
+    -v "${HOME}/.apps/signal/Export:/home/user/Export" \
+    -v "${HOME}/.apps/signal/Signal:/home/user/.config/Signal" \
+    --name signal \
+    ${DOCKER_REPO_PREFIX}/signal
 }
 skype(){
 	del_stopped skype

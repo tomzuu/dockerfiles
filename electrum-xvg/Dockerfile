@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 	&& python setup.py install \
 	&& chown -R user:user /home/user \
 	&& rm -rf /var/lib/apt/lists/* \
-	&& apt-get purge -y --auto-remove  git
+	&& apt-get purge -y --auto-remove git
 
 USER user
 
